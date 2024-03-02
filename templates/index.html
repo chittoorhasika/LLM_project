@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Enhancement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>        
+</head>
+<body>
+    <h1>Text Enhancement</h1>
+    <form action="/process_text" method="post">
+        <label for="input_text">Enter Text:</label><br>
+        <textarea name="input_text" rows="10" cols="50" required ></textarea><br><br>
+
+        <label for="enhancement_type">Choose Enhancement Type:</label>
+        <select name="enhancement_type" required>
+            <option value="summarization">Summarization</option>
+            <option value="spelling_correction">Spelling Correction</option>
+            <option value="sentence_correction">Sentence Correction</option>
+            <option value="entity_extraction">Entity Extraction</option>
+            <option value="text_classification">Text Classification</option>
+        </select><br><br>
+
+        <button type="submit">Enhance Text</button>
+
+        <div id="output">
+            {% if enhanced_text %}
+                <h2>Enhanced Text:</h2>
+                <p>{{ enhanced_text }}</p>
+            {% endif %}
+        </div>
+    </form>
+</body>
+</html>
